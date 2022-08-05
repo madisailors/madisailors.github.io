@@ -2,7 +2,7 @@ html{
     scroll-behavior: smooth;
 }
 /*BODY*/
-body{
+body{ 
     margin: 0%; /*displays to top of webpage*/
 }
 
@@ -27,7 +27,7 @@ h1:hover {
 /*Styling for portfolio title text*/
 
 .white-text{
-    color: rgb(235, 245, 255);
+    color: #fff;
 }
 
 /*Paragraph elements*/
