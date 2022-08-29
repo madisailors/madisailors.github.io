@@ -7,6 +7,7 @@
 </head>
 
 <title>Madison Sailors</title>
+<link rel="shortcut icon" type="img/png" href="./images/code.png">
 <link rel="stylesheet" type="text/css" href="./images/portlfolio.css">
 
 <!--BODY-->
@@ -15,9 +16,10 @@
     <!--NAVBAR-->
     <div class="navbar">
         <a class="active" href="#home">Home</a>
+        <a href="#Slideshow">Slideshow</a>
         <a href="#about">About</a>
         <a href="#Github">Github</a>
-        <a href="#Contact">Contact</a>
+        <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
     </div>
 
     <br>
@@ -38,10 +40,62 @@
         <h1 class="white-text">Madison Sailors' Portfolio</h1>
         <strong>
             <p class="center">
-                My name is Madison Sailors. Welcome to my portfolio website. On it, you can find my background, experience, and contact info. 
+                My name is Madison Sailors. Welcome to my portfolio website. Here, you can find my background, experience, and contact info. 
                 <br>Thanks for stopping by!
             </p>
         </strong>
+    </div>
+
+    <!-- Slideshow section added -->
+    <div id="Slideshow">
+        <div id="Slideshow_Background"> 
+            <div id="Slideshow_Container">
+                <!-- Slide 1 of 6 -->
+                <div class="mySlides fade">
+                    <img class="Slideshow_Images" src="./images/profile.jpeg">
+                    <div class="text">I'm available to assist you on your project!</div>
+                </div>
+                <!-- Slide 2 of 6 -->
+                <div class="mySlides fade">
+                    <img class="Slideshow_Images" src="./images/HTML_CSS_and_JavaScript.jpeg"> 
+                    <div class="text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,</div>
+                </div>
+                <!-- Slide 3 of 6 -->
+                <div class="mySlides fade">
+                    <img class="Slideshow_Images" src="./images/Python.png">
+                    <div class="text">the popular programming language Python,</div>
+                </div>
+                <!-- Slide 4 of 6 -->
+                <div class="mySlides fade">
+                    <img class="Slideshow_Images" src="./images/C_Sharp_and_Dot_NET.png">
+                    <div class="text">C#, .NET Framework, ASP.NET, MVC, </div>
+                </div>
+                <!-- Slide 5 of 6 -->
+                <div class="mySlides fade">
+                    <img class="Slideshow_Images" src="./images/SQL_and_Database.jpg"> 
+                    <div class="text">back end development, databases and SQL.</div>
+                </div>
+                <!-- Slide 6 of 6 -->
+                <div class="mySlides fade">
+                    <img class="Slideshow_Images" src="./images/codingimg.jpeg"> 
+                    <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div> 
+                </div>
+                <!-- Previous and next buttons -->
+                <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br> <!-- Adds a space between the slideshow images and the dots -->
+
+            <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+            <div style="text-align: center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span> 
+                <span class="dot" onclick="currentSlide(4)"></span> 
+                <span class="dot" onclick="currentSlide(5)"></span> 
+                <span class="dot" onclick="currentSlide(6)"></span> 
+            </div>
+        </div>
     </div>
 
     <!--About section-->
@@ -58,7 +112,7 @@
                 <br>
                 <br>I am an honors graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy's</a> Software Developer Boot Camp, and experienced in the following web programming languages: HTML, CSS, JavaScript, SQL, C# and more.
                 <br>
-                <br>I'm a full stack developer and I'd love to collaborate and work with you on your project. <a href="#contact">Conact</a> me below!
+                <br>I'm a full stack developer and I'd love to collaborate and work with you on your project. <a onclick="openForm()" class="contact">Conact</a> me below!
             </p>
         </div>
     </div>
@@ -70,7 +124,7 @@
         <div class="column_1">
         <h1>Github</h1>
         <p>
-            You can view my coding projects on my github prfile here:
+            You can view my coding projects on my github profile here:
             <br>
             <p class="center"> <a href="https://github.com/madisailors" target="_blank">Madison Sailors Github</a>
             </p>
@@ -84,21 +138,25 @@
 
 <!--CONTACT SECTION-->
 
-<div class="row" id="Contact">
-    <!--contact pic, right column-->
-    <div class="column_1 coulmn-tall">
-        <h1>Contact</h1>
-        <form action="https://formspree.io/forms/xjvzbjza/submissions" method="POST">
-            <label>Name:</label>
-                <input type="text" placeholder="Please enter your name here">
-            <label>Email:</label>
-                <input type="text" id="email" name="email" placeholder="Please enter your email here">
-            <label>Message:</label>
-                <input type="text" id="message" name="message" placeholder="Please write a brief message here">
-                <input type="submit" value="SUBMIT">
-        </form>
+<div id="Contact">
+    <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+    <div class="form-popup" id="myForm" ondblclick="closeForm()">
+         <form action="https://formspree.io/info@learncodinganywhere.com" method="POST" class="form-container">
+             <h1>Contact</h1>
+             <label for="name"><b>Name</b></label>
+               <input type="text" placeholder="Type your name here" name="name" required>
+             <label for="phone"><b>Phone</b></label>
+               <input type="text" placeholder="Type your phone number here" name="phone">
+             <label for="email"><b>Email</b></label>		
+               <input type="text" placeholder="Type your email address here" name="email" required>
+             <label for="message"><b>Message</b></label>
+               <input type="text" placeholder="Type your message here" name="message">
+  
+             <button type="submit" class="btn">SUBMIT</button>
+             <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+         </form>
     </div>
-</div>
+ </div>
 
 <!--FOOTER-->
 
@@ -111,7 +169,9 @@
 
 
 
+<script src="./portfolio.js" defer>
+
+</script>
 
 </body>
-
-<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'a2plcpnl0302'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>
+</html>

@@ -4,12 +4,18 @@ html{
 /*BODY*/
 body{ 
     margin: 0%; /*displays to top of webpage*/
+    opacity: 1; 
+    transition: 3s opacity; /*causes a 3 second fade*/
+    letter-spacing: 2vw; /*realitve measurement*/
+    font-size: 1.5vw;
+    overflow: hidden;
+    user-select: none; /*prevents text on webpage from being highlighted by user*/
 }
 
 /* Heading 1 elements */
 
 h1 {
-    text-transform: uppercase;
+    text-transform: uppercase; /*capitalize all h1 elements*/
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
     margin-top: 3%;
@@ -28,6 +34,7 @@ h1:hover {
 
 .white-text{
     color: #fff;
+    padding-top: 10vh;
 }
 
 /*Paragraph elements*/
@@ -60,6 +67,8 @@ p:hover{
 
 a{
     color:darkslategrey;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 /*Image Elements*/
@@ -70,8 +79,7 @@ img {
     max-width: 100%;
     height: 340px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin:auto auto auto auto;
 }
 
 img:hover{
@@ -125,6 +133,7 @@ footer{
     text-align: center;
     position: relative;
     -webkit-animation: moveNavText 5.75s;
+    animation: moveNavText 5.75;
 }
 
 @keyframes moveNavText{
@@ -132,12 +141,12 @@ footer{
     to {top: 0vw;}
 }
 
-@media screen and (max width: 576px){
-.navbar a{
-    width: 25%;
-    font-size: 12px;
-}
-}
+@media screen and (max-width: 576px){
+    .navbar a{
+        width: 25%;
+        font-size: 12px;
+    }
+    }
 
 .navbar a:hover{
     background-color: #4c4c60;
@@ -167,6 +176,7 @@ footer{
     }
 }
 
+
 .video_text {
     background: rbga(0,0,0,0.5);
     color: antiquewhite;
@@ -182,6 +192,111 @@ footer{
     to {top: 0vw;}
 }
 /***END VIDEO STYLING***/
+
+/*** slideshow styling ***/
+#Slideshow_Background {
+    background: rgba(67, 100, 147, 0.35);
+}
+
+.mySlides{
+    display: none; /*prevents images from being displayed, use JS to display*/
+}
+
+/*slideshow section/conatiner*/
+
+#Slideshow_Container {
+    width: 39.5vw;/* relative sizing to the container of the slideshow */
+    height: auto; /*height of container is automatically adjusted*/
+    padding-top: 4%;
+    position: relative;
+    margin: auto; /*horiszontally center the container on the page */
+}
+
+#Slideshow_Container a {
+    text-decoration: none; /*removes underline from previous and next buttons*/
+}
+
+.Slideshow_Images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(67, 100, 147, 0.35);
+}
+
+/*next and previous buttons*/
+.Previous, .Next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px px 0;
+    user-select: none;
+    transition: .6s ease;
+}
+
+.Next {
+    right: 0; /*moves button to right side of screen*/
+    border-radius: 3px 0 0 3px;
+}
+
+.Previous:hover .Next:hover {
+    background-color: darkslategray;
+    color: antiquewhite;
+}
+
+.text {
+    color: antiquewhite;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    background-color: rgba(0,0,0,0.75);
+    font-weight: bold;
+    border-radius: 0px 0px 7px 7px;
+}
+
+/*styling of dots under slideshow*/
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    margin: .25vw;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    display: inline-block; /* allows dots to sit next to eachother rather than on the new line */
+    transition: background-color .6s ease; /*when clicked on the dots transition to another color*/
+    z-index: 1; /*ensures all dots will be displayed above anuthing else on page*/
+}
+
+/*hover effect for dots*/
+.active .dot:hover {
+    background-color: #050506;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+@keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+/*** END SLIDESHOW STYLING**/
 
 /***TABLE STYLING (COLUMNS)***/
 
@@ -228,7 +343,45 @@ footer{
 
 /*** CONTACT FORMSTYLING ***/
 
-input[type=text] {
+.Pop_Up_Button {
+    position: fixed;
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw;
+    background-color: antiquewhite;
+    color: #191921;
+    border: solid black;
+    cursor: pointer;
+    -webkit-animation: movePopup 5s;
+    animation: movePopup 5s;
+}
+
+/*move popup animation*/
+@keyframes movePopup {
+    from {right: -40vw;}
+    to {right: 1.75vw;}
+}
+
+@-webkit-keyframes movePopup {
+    from {right: -40vw;}
+    to {right: 1.75vw;}
+}
+
+.form-popup {
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: .5vw;
+    right: .5vw;
+}
+
+.form-container {
+    max-width: 49vw;
+    padding: 1vw;
+    background-color: white;
+}
+
+.form-container input[type=text] {
     width:100%;
     padding: 12px;
     border: 1px solid rgb(179, 190, 205);
@@ -238,6 +391,48 @@ input[type=text] {
     margin-bottom: 16px;
     resize: vertical;
     font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: .3vw;
+    font-weight: bold;
+    padding: 1.5vw;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+button:hover, .form-container .btn:hover {
+    color: antiquewhite;
+    background-color: darkslategrey;
+    transition-duration: 1.2s;
+    -webkit-animation-duration: 1.2s;
+    border-color: silver;
+}
+
+/*submit button*/
+.form-container .btn {
+    background-color: antiquewhite;
+    color: darkslategray;
+    border-color: darkslategrey;
+    margin-bottom: 1vh;
+}
+
+/*close button*/
+.form-container .cancel {
+    background-color: darkslategrey;
+    color: #fff;
+    border-color: darkgray;
+}
+
+/*styling for close button on hover*/
+.form-container .cancel:hover {
+    color: #fff;
+    background-color: darkred;
+    transition-duration: 1.2s;
+    -webkit-transition-duration: 1.2s;
+    border-color: #050506;
 }
 
 input[type=text]:hover{
@@ -274,6 +469,100 @@ form{
     font-family: 'Courier New', Courier, monospace;
 }
 
+/****MEDIA QUERY SECTION****/
+
+@media screen and (max-width: 527px) {
+    p {
+        font-size: 3.75vw;
+    }
+}
+
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p {
+        font-size: 2.75vw;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p {
+        font-size: 2.25vw;
+    }
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p {
+        font-size: 2vw;
+    } 
+}
+
+@media screen and (min-width: 1311px) and (max-width: 1535px) {
+    p {
+        font-size: 1.75vw;
+    }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (min-width: 2270px) {
+    p {
+        font-size: 1.35vw;
+    }
+}
+
+/*Media rule for navbar links for different screen sizes*/
+/* Screens 1080px and smaller will display navbar links equally distributed */
+@media screen and (max-width: 1080px) {
+    .Navbar a{
+        width: 20%; /* This sets each navbar link to 1/5 of the navbar */
+        font-size: 2.5vw;
+    }
+}
+
+/* Media rules to enlarge the font of the white text for smaller screens */
+@media screen and (max-width: 1080px) {
+    .quote{
+        font-size: 3.5vw;
+    }
+
+    .white-text {
+        font-size: 4.5vw;
+    }
+}
+
+/* Media rules to increase the size of the columns for larger screens */
+@media screen and (min-width: 1725px) {
+    .Column_1 {
+        height: 550px;
+    }
+    .Column_2 {
+        height: 550px;
+    }
+}
+
+
+/*Media rule to remove margin-top from h1 elements for extra large screens (so that the paragraph text fits in the column*/
+@media screen and (min-width: 2000px) {
+    h1{
+        margin-top: 0;
+    }
+}
+/***** End of Media Query Section *****/
 
 /*END*/
     
