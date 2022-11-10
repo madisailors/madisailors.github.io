@@ -8,7 +8,6 @@ body{
     transition: 3s opacity; /*causes a 3 second fade*/
     letter-spacing: 2vw; /*realitve measurement*/
     font-size: 1.5vw;
-    overflow: hidden;
     user-select: none; /*prevents text on webpage from being highlighted by user*/
 }
 
