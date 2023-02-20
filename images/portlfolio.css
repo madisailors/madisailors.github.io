@@ -307,7 +307,7 @@ footer{
     float: left;
     width: 50%;
     padding: 10px;
-    padding-top: 3%;
+    padding-top: -100px;
     height: 400px;
     background-color: darkslategray;
 }
