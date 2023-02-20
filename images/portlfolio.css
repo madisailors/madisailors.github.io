@@ -5,9 +5,9 @@ html{
 body{ 
     margin: 0%; /*displays to top of webpage*/
     opacity: 1; 
-    transition: 3s opacity; /*causes a 3 second fade*/
+    transition: 2s opacity; /*causes a 3 second fade*/
     letter-spacing: 2vw; /*realitve measurement*/
-    font-size: 1.5vw;
+    font-size: 1.0vw;
     user-select: none; /*prevents text on webpage from being highlighted by user*/
 }
 
@@ -40,9 +40,9 @@ h1:hover {
 
 p{
     font-family: 'Courier New', Courier, monospace;
-    text-align: justify;
-    letter-spacing: 1px;
-    font-size: 20px;
+    text-align: start;
+    letter-spacing: 0px;
+    font-size: .5px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -65,7 +65,7 @@ p:hover{
 /*Anchor element*/
 
 a{
-    color:darkslategrey;
+    color:rgb(0, 0, 0);
     cursor: pointer;
     text-decoration: underline;
 }
